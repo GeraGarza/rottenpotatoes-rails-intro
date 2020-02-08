@@ -2,7 +2,7 @@
 %h2 All Movies
 = form_tag movies_path, :method => :get, :id => 'ratings_form' do
   Include:
-  - (@all_ratings.first).downto(@all_ratings.last).each do |rating|
+  - @all_ratings.each do |rating|
     = rating
     = check_box_tag "ratings[#{rating}]", '', ('checked' if @rate_param.include? rating)
   
