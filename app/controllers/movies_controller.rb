@@ -13,12 +13,17 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.ratings.reverse
     @indexSort = params[:indexSort] || session[:indexSort]
-    session[:ratings] = session[:ratings] || {'G'=>'', 'PG'=>'', 'PG-13'=>'', 'g'=>''}
+    session[:ratings] = session[:ratings] || {'G'=>'', 'PG'=>'', 'PG-13'=>'', 'R'=>''}
     @rate_param = params[:ratings] || session[:ratings]
     session[:indexSort] = @indexSort
     session[:ratings] = @rate_param
   
     @movies = Movie.where(rating: session[:ratings].keys).order(session[:indexSort])
+    if(params[:indexSort].nil? and !(session(:indexSort).nil?)) or (params[:ratings].nil? and !(session[:ratings].nil?))
+      flash.keep
+      redirect_to movies_path(sort: session[:sort].ratings: session[:ratings])
+    end
+    
     
   end
 
