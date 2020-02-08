@@ -20,8 +20,8 @@ class MoviesController < ApplicationController
   
     @movies = Movie.where(rating: session[:ratings].keys).order(session[:indexSort])
     
-    if(params[:indexSort].nil == false && session(:indexSort).nil == true )
-      flash.keep
+    if(params[:indexSort].nil == false  )
+      #flash.keep
       # redirect_to movie_path(sort: session[:sort], ratings: session[:ratings])
     end
     
