@@ -6,7 +6,7 @@
     = rating
     = check_box_tag "ratings[#{rating}]", '', ('checked' if @rate_param.include? rating) ,:style => "padding: 15px;" 
   
-  = submit_tag("Refresh" , :id => 'ratings_submit' , :class => "btn btn-primary", :style => "padding-left: 10px; padding-right:10px" ) 
+  = submit_tag("Refresh" , :id => 'ratings_submit' , :class => "btn btn-primary", :style => "left: 15px; right:15px" ) 
 
 %table#movies.table.table-striped.col-md-12
   %thead
