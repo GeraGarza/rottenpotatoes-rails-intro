@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @all_ratings = Movie.ratings.reverse()
+    @all_ratings = Movie.ratings.reverse
     @indexSort = params[:indexSort] || session[:indexSort]
     session[:ratings] = session[:ratings] || {'G'=>'', 'PG'=>'', 'PG-13'=>'', 'g'=>''}
     @rate_param = params[:ratings] || session[:ratings]
