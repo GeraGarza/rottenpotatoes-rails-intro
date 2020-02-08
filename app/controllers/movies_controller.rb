@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
     
     if(params[:indexSort].nil == true && session(:indexSort).nil == false ) || (params[:ratings].nil == true && session[:ratings].nil? == false)
       flash.keep
-      redirect_to movies_path(sort: session[:sort], ratings: session[:ratings])
+      redirect_to movie_path(sort: session[:sort], ratings: session[:ratings])
     end
     
     
